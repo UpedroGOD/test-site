@@ -24,10 +24,6 @@ const presenceFeedbackDuration = 4200;
 const lockedWhatsAppButtonText = "Confirme no site primeiro";
 const unlockedWhatsAppButtonText = "Enviar no WhatsApp";
 
-// Pré-carrega o som do iPhone
-const iosSound = new Audio("https://raw.githubusercontent.com/Yizack/Yizack.github.io/master/assets/audio/ios-notification.mp3");
-iosSound.load();
-
 updateCountdown();
 markExternalLinks();
 enhanceWhatsAppLinks();
@@ -401,20 +397,25 @@ async function copyAddressField(field) {
 
 function playNotificationSound() {
   try {
-    // Reinicia o som caso já esteja tocando
-    iosSound.currentTime = 0;
-    iosSound.volume = 0.6;
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioContext.createOscillator();
+    const gainNode = audioContext.createGain();
     
-    // Tenta tocar o som pré-carregado
-    const playPromise = iosSound.play();
+    oscillator.connect(gainNode);
+    gainNode.connect(audioContext.destination);
     
-    if (playPromise !== undefined) {
-      playPromise.catch(error => {
-        console.log("Reprodução automática bloqueada ou erro no áudio:", error);
-      });
-    }
+    oscillator.frequency.setValueAtTime(1320, audioContext.currentTime);
+    oscillator.frequency.setValueAtTime(1320, audioContext.currentTime + 0.08);
+    oscillator.frequency.setValueAtTime(990, audioContext.currentTime + 0.08);
+    oscillator.frequency.setValueAtTime(990, audioContext.currentTime + 0.16);
+    
+    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.16);
+    
+    oscillator.start(audioContext.currentTime);
+    oscillator.stop(audioContext.currentTime + 0.16);
   } catch (error) {
-    console.error("Erro ao processar o som:", error);
+    // Silently fail if Web Audio API is not available
   }
 }
 
