@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bryan ou Olivia?👶💙💖</title>
+    <meta name="theme-color" content="#f5f1e8" />
+    <meta
+      name="description"
+      content="Convite online para chá de bebê e chá revelação com localização e mensagens prontas."
+    />
+    <link rel="stylesheet" href="styles.css?v=20260424-14" />
+    <script src="config.js?v=20260424-14" defer></script>
+    <script src="script.js?v=20260424-14" defer></script>
+  </head>
+  <body>
+    <div class="page-glow page-glow-left" aria-hidden="true"></div>
+    <div class="page-glow page-glow-right" aria-hidden="true"></div>
+
+    <main class="invite-shell">
+      <section class="hero reveal">
+        <p class="eyebrow">Bryan ou Olivia? 👶💙💖</p>
+        <h4 class="event-title">Chá revelação & chá de bebê</h4>
+        <p class="hero-question">
+          <span class="hero-question-intro">Vem descobrir com a gente</span>
+          <span class="name-boy" aria-label="Bryan">
+            <span class="name-text">Bryan</span>
+            <span class="name-effect name-effect-boy" aria-hidden="true">
+              <span class="race-track"></span>
+              <span class="race-smoke">💨</span>
+              <span class="race-rival">🏎️</span>
+              <span class="race-car">🏎️</span>
+              <span class="race-finish">🏁</span>
+            </span>
+          </span>
+          <span class="hero-question-or">ou</span>
+          <span class="name-girl" aria-label="Olivia">
+            <span class="name-text">Olivia</span>
+            <span class="name-effect name-effect-girl" aria-hidden="true">
+              <span class="toy-bear">🧸</span>
+              <span class="toy-bow">🎀</span>
+            </span>
+          </span>
+          <span class="hero-question-end">? 😍</span>
+        </p>
+        <p class="hero-copy">
+          No dia 24 de maio, das 13h às 17h, queremos viver esse momento com
+          você em uma tarde leve, especial e cheia de carinho. O momento mais
+          esperado do nosso chá revelação será das 15h às 16h, então não perca
+          essa hora tão especial 💙💖
+        </p>
+
+        <div class="hero-highlights">
+          <article class="highlight-card">
+            <span class="highlight-label">Quando</span>
+            <strong>24 de maio</strong>
+          </article>
+          <article class="highlight-card">
+            <span class="highlight-label">Horário</span>
+            <strong>13h às 18h</strong>
+          </article>
+          <article class="highlight-card highlight-card-address">
+            <span class="highlight-label">Onde</span>
+            <textarea
+              class="address-copy-field"
+              readonly
+              rows="3"
+              aria-label="Endereço do evento"
+            >Lino Leiteiro, Estrada Municipal, casa n° 60, Varginha, Mateus Leme - MG</textarea>
+            <span class="copy-hint">Toque e copie o endereço</span>
+          </article>
+        </div>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#confirmar">
+            Confirmar presença
+          </a>
+        </div>
+
+        <p
+          class="countdown"
+          data-base-text="Esperamos você para viver esse momento com a gente."
+        >
+          Esperamos você para viver esse momento com a gente.
+        </p>
+      </section>
+
+      <section class="info-grid reveal">
+        <article class="info-card info-card-story">
+          <h2>Um dia especial</h2>
+          <p>
+            Será uma alegria ter você com a gente nesse momento especial, sua
+            presença é o nosso maior presente.
+          </p>
+          <div class="info-actions">
+            <a
+              class="button button-secondary location-button waze-button"
+              href="https://www.waze.com/ul?q=Estrada%20Municipal%2C%20casa%2060%2C%20Varginha%2C%20Mateus%20Leme%20-%20MG&navigate=yes"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Abrir no Waze
+            </a>
+          </div>
+        </article>
+      </section>
+
+      <section class="rsvp reveal" id="confirmar">
+        <div class="section-heading">
+          <p class="card-kicker">Confirmação</p>
+          <h2>Escolha como confirmar</h2>
+          <p>
+            Você pode registrar sua presença aqui no site ou enviar uma mensagem
+            automática no WhatsApp.
+          </p>
+        </div>
+
+        <div class="rsvp-grid">
+          <article class="message-card">
+            <span class="message-tag">Confirmação no site</span>
+            <p>
+              Preencha seu nome e toque no botão para registrar sua presença.
+              Depois disso, a mensagem automática no WhatsApp será liberada.
+              Ex:Pedro e família
+            </p>
+            <form class="confirmation-form" id="presence-form">
+              <label class="form-label" for="guest-name">Seu nome</label>
+              <input
+                class="form-input"
+                id="guest-name"
+                name="guestName"
+                type="text"
+                placeholder="Digite seu nome"
+                required
+              />
+              <button class="message-link full" type="submit">
+                Confirmar minha presença
+              </button>
+            </form>
+          </article>
+
+          <article class="message-card message-card-whatsapp" id="whatsapp-card" hidden>
+            <span class="message-tag">Mensagem automática</span>
+            <p>
+              Primeiro confirme sua presença no site. Depois o WhatsApp será
+              liberado para você enviar a mensagem pronta.
+            </p>
+            <form class="confirmation-form confirmation-form-whatsapp" id="whatsapp-message-form">
+              <label class="form-label" for="guest-name-whatsapp">Seu nome</label>
+              <input
+                class="form-input"
+                id="guest-name-whatsapp"
+                name="guestNameWhatsapp"
+                type="text"
+                placeholder="Digite seu nome"
+                autocomplete="name"
+                required
+              />
+              <button
+                class="message-link full"
+                id="whatsapp-confirm-button"
+                type="button"
+                disabled
+                aria-disabled="true"
+              >
+                Confirme no site primeiro
+              </button>
+            </form>
+          </article>
+        </div>
+      </section>
+
+      <section class="closing reveal">
+        <p class="closing-label">Com carinho</p>
+        <h2>Pedro e Rayane</h2>
+        <p>Sua presença vai deixar esse momento ainda mais especial para todos nós.</p>
+      </section>
+    </main>
+
+    <div class="copy-toast" id="copy-toast" role="status" aria-live="polite"></div>
+    <iframe
+      name="confirmation-submit-frame"
+      id="confirmation-submit-frame"
+      hidden
+      aria-hidden="true"
+    ></iframe>
+  </body>
+</html>
